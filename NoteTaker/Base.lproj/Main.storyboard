@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XEe-t2-Qfc">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="cb0-34-6eu">
+            <objects>
+                <navigationController id="XEe-t2-Qfc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wXO-hd-seK">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hV2-Ti-1n2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbk-MQ-i2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1213" y="4"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NoteTaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VoicePad Pro" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lp-GC-k1C">
+                                <rect key="frame" x="69" y="198" width="255" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="7hw-7b-lUV"/>
+                                    <constraint firstAttribute="width" constant="255" id="vNP-KF-fTt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3G-3u-VOm">
+                                <rect key="frame" x="29" y="521" width="153" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="5Lk-Wp-aFh"/>
+                                    <constraint firstAttribute="height" constant="95" id="Vjx-tH-oeW"/>
+                                </constraints>
+                                <color key="tintColor" red="0.80578039532361889" green="0.41066902530008054" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="View All Notes">
+                                    <color key="baseBackgroundColor" red="1" green="0.65125307431767898" blue="0.037953473529160675" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="tGI-Oa-Ag1" kind="show" id="6Bm-cC-J6Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Il-2W-E4z">
+                                <rect key="frame" x="213" y="521" width="153" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="C1Y-sb-Gft"/>
+                                    <constraint firstAttribute="width" constant="153" id="EpU-AW-e8M"/>
+                                </constraints>
+                                <color key="tintColor" red="0.80578039530000001" green="0.41066902529999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="New Note">
+                                    <color key="baseBackgroundColor" red="1" green="0.65125307430000001" blue="0.037953473529999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="w0B-2X-GO2" kind="show" id="PW3-qP-ef0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Il-2W-E4z" secondAttribute="trailing" constant="27" id="FjA-4L-77A"/>
+                            <constraint firstItem="7Il-2W-E4z" firstAttribute="top" secondItem="8Lp-GC-k1C" secondAttribute="bottom" constant="113" id="HKw-YC-d7g"/>
+                            <constraint firstItem="m3G-3u-VOm" firstAttribute="top" secondItem="8Lp-GC-k1C" secondAttribute="bottom" constant="113" id="V6k-eD-Jia"/>
+                            <constraint firstItem="8Lp-GC-k1C" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jg3-Lh-3Q2"/>
+                            <constraint firstItem="8Lp-GC-k1C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="oFv-8a-edM"/>
+                            <constraint firstItem="m3G-3u-VOm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="szv-JN-tv2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3eX-C5-r6f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6.8702290076335872" y="3.5211267605633805"/>
+        </scene>
+        <!--New Note-->
+        <scene sceneID="Xnh-Zx-5mX">
+            <objects>
+                <viewController id="w0B-2X-GO2" customClass="NewNoteController" customModule="NoteTaker" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JzR-4P-LPs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Record To Take Notes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-R4-gpS">
+                                <rect key="frame" x="53" y="130" width="287" height="417"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="287" id="Hmr-Uh-0nD"/>
+                                    <constraint firstAttribute="height" constant="417" id="aei-cy-caX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUD-ee-Cej">
+                                <rect key="frame" x="140.66666666666666" y="622" width="112" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="PqO-a5-0Ym"/>
+                                    <constraint firstAttribute="width" constant="112" id="xTV-Yy-A7X"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="mic.circle.fill" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rIF-3x-x1J"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uUD-ee-Cej" firstAttribute="centerX" secondItem="rIF-3x-x1J" secondAttribute="centerX" id="Mob-0e-c3W"/>
+                            <constraint firstItem="xP0-R4-gpS" firstAttribute="top" secondItem="rIF-3x-x1J" secondAttribute="top" constant="27" id="Tui-ZO-NA8"/>
+                            <constraint firstItem="uUD-ee-Cej" firstAttribute="top" secondItem="xP0-R4-gpS" secondAttribute="bottom" constant="75" id="dZL-89-MX6"/>
+                            <constraint firstItem="xP0-R4-gpS" firstAttribute="centerX" secondItem="rIF-3x-x1J" secondAttribute="centerX" id="dsb-V5-Efm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Note" id="Sen-iG-BDT"/>
+                    <connections>
+                        <outlet property="micButton" destination="uUD-ee-Cej" id="k65-pZ-gIk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFg-qo-OC5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119.8473282442749" y="600.70422535211276"/>
+        </scene>
+        <!--All Notes-->
+        <scene sceneID="x0O-eJ-APm">
+            <objects>
+                <viewController id="tGI-Oa-Ag1" customClass="AllNotesController" customModule="NoteTaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CkD-8J-cmw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UoS-st-g8Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="All Notes" id="kBZ-cE-sSa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ot-JU-BVM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1126" y="-204"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mic.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
