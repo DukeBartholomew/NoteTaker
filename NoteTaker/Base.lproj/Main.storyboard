@@ -147,14 +147,41 @@
                     <view key="view" contentMode="scaleToFill" id="CkD-8J-cmw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EUK-eV-ZUN">
+                                <rect key="frame" x="39.666666666666657" y="261" width="314" height="399"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="314" id="GYK-Ye-DsW"/>
+                                    <constraint firstAttribute="height" constant="399" id="GmS-fE-TeA"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" id="4h8-Uy-z1k">
+                                        <rect key="frame" x="0.0" y="50" width="314" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4h8-Uy-z1k" id="eXO-GO-ev1">
+                                            <rect key="frame" x="0.0" y="0.0" width="314" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="UoS-st-g8Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EUK-eV-ZUN" firstAttribute="centerX" secondItem="UoS-st-g8Q" secondAttribute="centerX" id="8jb-W6-zve"/>
+                            <constraint firstItem="EUK-eV-ZUN" firstAttribute="centerY" secondItem="UoS-st-g8Q" secondAttribute="centerY" id="zxA-yK-cru"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All Notes" id="kBZ-cE-sSa"/>
+                    <connections>
+                        <outlet property="tableView" destination="EUK-eV-ZUN" id="OR2-3X-gaa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ot-JU-BVM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="-204"/>
+            <point key="canvasLocation" x="1122.9007633587785" y="-204.22535211267606"/>
         </scene>
     </scenes>
     <resources>

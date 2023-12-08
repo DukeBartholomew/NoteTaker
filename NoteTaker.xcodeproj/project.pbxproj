@@ -15,6 +15,7 @@
 		AB0A84C12B21390E00B281FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0A84BF2B21390E00B281FF /* LaunchScreen.storyboard */; };
 		AB0A84CD2B21738600B281FF /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A84CC2B21738600B281FF /* NewNoteController.swift */; };
 		AB0A84CF2B21740300B281FF /* AllNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A84CE2B21740300B281FF /* AllNotesController.swift */; };
+		AB0A84D82B22C9C800B281FF /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A84D72B22C9C800B281FF /* NoteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AB0A84C22B21390E00B281FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB0A84CC2B21738600B281FF /* NewNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
 		AB0A84CE2B21740300B281FF /* AllNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesController.swift; sourceTree = "<group>"; };
+		AB0A84D72B22C9C800B281FF /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				AB0A84BA2B21390B00B281FF /* Main.storyboard */,
 				AB0A84CC2B21738600B281FF /* NewNoteController.swift */,
 				AB0A84CE2B21740300B281FF /* AllNotesController.swift */,
+				AB0A84D72B22C9C800B281FF /* NoteManager.swift */,
 				AB0A84BD2B21390E00B281FF /* Assets.xcassets */,
 				AB0A84BF2B21390E00B281FF /* LaunchScreen.storyboard */,
 				AB0A84C22B21390E00B281FF /* Info.plist */,
@@ -146,6 +149,7 @@
 			files = (
 				AB0A84B92B21390B00B281FF /* ViewController.swift in Sources */,
 				AB0A84B52B21390B00B281FF /* AppDelegate.swift in Sources */,
+				AB0A84D82B22C9C800B281FF /* NoteManager.swift in Sources */,
 				AB0A84CF2B21740300B281FF /* AllNotesController.swift in Sources */,
 				AB0A84CD2B21738600B281FF /* NewNoteController.swift in Sources */,
 				AB0A84B72B21390B00B281FF /* SceneDelegate.swift in Sources */,
