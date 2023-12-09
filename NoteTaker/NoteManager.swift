@@ -9,6 +9,8 @@ import Foundation
 
 struct Note: Codable {
     var title: String
+    var body: String
+    var dateCreated: Date
 }
 
 class NoteManager {
@@ -16,13 +18,15 @@ class NoteManager {
 
     private var notes: [Note] = []
     private let fileName = "notes.json"
+    private let folderName = "VoicePadPro"
 
     private init() {
         loadNotes()
     }
 
-    func add(note: Note) {
-        notes.append(note)
+    func addNote(title: String, body: String) {
+        let newNote = Note(title: title, body: body, dateCreated: Date())
+        notes.append(newNote)
         saveNotes()
     }
 
@@ -35,16 +39,20 @@ class NoteManager {
             let encoder = JSONEncoder()
             let data = try encoder.encode(notes)
 
-            if let filePath = filePath() {
-                try data.write(to: filePath)
+            guard let filePath = filePath() else {
+                print("Error getting file path.")
+                return
             }
+
+            try data.write(to: filePath, options: .atomicWrite)
         } catch {
-            print("Error encoding notes: \(error)")
+            print("Error encoding or saving notes: \(error)")
         }
     }
 
     private func loadNotes() {
         guard let filePath = filePath(), FileManager.default.fileExists(atPath: filePath.path) else {
+            print("File doesn't exist.")
             return
         }
 
@@ -58,8 +66,20 @@ class NoteManager {
     }
 
     private func filePath() -> URL? {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        return documentsDirectory?.appendingPathComponent(fileName)
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("Error getting document directory.")
+            return nil
+        }
+
+        let voicePadFolder = documentDirectory.appendingPathComponent(folderName, isDirectory: true)
+
+        do {
+            try FileManager.default.createDirectory(at: voicePadFolder, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Error creating VoicePadPro folder: \(error)")
+            return nil
+        }
+
+        return voicePadFolder.appendingPathComponent(fileName, isDirectory: false)
     }
 }
-
