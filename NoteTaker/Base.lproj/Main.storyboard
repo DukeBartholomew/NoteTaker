@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XEe-t2-Qfc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XEe-t2-Qfc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -91,7 +92,7 @@
             </objects>
             <point key="canvasLocation" x="6.8702290076335872" y="3.5211267605633805"/>
         </scene>
-        <!--New Note-->
+        <!--New Note Controller-->
         <scene sceneID="Xnh-Zx-5mX">
             <objects>
                 <viewController id="w0B-2X-GO2" customClass="NewNoteController" customModule="NoteTaker" sceneMemberID="viewController">
@@ -99,40 +100,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Record To Take Notes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-R4-gpS">
-                                <rect key="frame" x="53" y="130" width="287" height="417"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="287" id="Hmr-Uh-0nD"/>
-                                    <constraint firstAttribute="height" constant="417" id="aei-cy-caX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUD-ee-Cej">
-                                <rect key="frame" x="140.66666666666666" y="622" width="112" height="77"/>
+                                <rect key="frame" x="171.66666666666666" y="622" width="49.666666666666657" height="77"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="PqO-a5-0Ym"/>
-                                    <constraint firstAttribute="width" constant="112" id="xTV-Yy-A7X"/>
+                                    <constraint firstAttribute="height" constant="77" id="pZF-pR-qED"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="mic.circle.fill" catalog="system" symbolScale="large"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="recordingPressed:" destination="w0B-2X-GO2" eventType="touchDown" id="WLp-Iy-KhD"/>
+                                    <action selector="recordingReleased:" destination="w0B-2X-GO2" eventType="touchUpInside" id="oV8-i0-AT9"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9qc-im-Zgg">
+                                <rect key="frame" x="36" y="129" width="331" height="474"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rIF-3x-x1J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rIF-3x-x1J" firstAttribute="trailing" secondItem="9qc-im-Zgg" secondAttribute="trailing" constant="26" id="8KG-sP-AhV"/>
                             <constraint firstItem="uUD-ee-Cej" firstAttribute="centerX" secondItem="rIF-3x-x1J" secondAttribute="centerX" id="Mob-0e-c3W"/>
-                            <constraint firstItem="xP0-R4-gpS" firstAttribute="top" secondItem="rIF-3x-x1J" secondAttribute="top" constant="27" id="Tui-ZO-NA8"/>
-                            <constraint firstItem="uUD-ee-Cej" firstAttribute="top" secondItem="xP0-R4-gpS" secondAttribute="bottom" constant="75" id="dZL-89-MX6"/>
-                            <constraint firstItem="xP0-R4-gpS" firstAttribute="centerX" secondItem="rIF-3x-x1J" secondAttribute="centerX" id="dsb-V5-Efm"/>
+                            <constraint firstItem="9qc-im-Zgg" firstAttribute="leading" secondItem="JzR-4P-LPs" secondAttribute="leadingMargin" id="eNX-go-BTl"/>
+                            <constraint firstItem="9qc-im-Zgg" firstAttribute="top" secondItem="rIF-3x-x1J" secondAttribute="top" id="h7j-0c-vce"/>
+                            <constraint firstItem="rIF-3x-x1J" firstAttribute="bottom" secondItem="uUD-ee-Cej" secondAttribute="bottom" constant="119" id="sVm-Yc-yPa"/>
+                            <constraint firstItem="uUD-ee-Cej" firstAttribute="top" secondItem="9qc-im-Zgg" secondAttribute="bottom" constant="19" id="sZD-yg-o2e"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Note" id="Sen-iG-BDT"/>
+                    <navigationItem key="navigationItem" id="Sen-iG-BDT">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bYQ-rl-nrB">
+                            <rect key="frame" x="118" y="5.6666666666666679" width="157" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="English"/>
+                                <segment title="Japanese"/>
+                            </segments>
+                            <connections>
+                                <action selector="pickLanguage:" destination="w0B-2X-GO2" eventType="valueChanged" id="hyu-gD-eaB"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Save Note" id="GDe-bt-wUv"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="dictation" destination="9qc-im-Zgg" id="XDD-PD-ot6"/>
                         <outlet property="micButton" destination="uUD-ee-Cej" id="k65-pZ-gIk"/>
                     </connections>
                 </viewController>
@@ -186,11 +204,11 @@
     </scenes>
     <resources>
         <image name="mic.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
