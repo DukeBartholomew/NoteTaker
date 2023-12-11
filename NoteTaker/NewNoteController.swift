@@ -10,12 +10,13 @@ import AVFoundation
 import Speech
 
 class NewNoteController: UIViewController {
-
+    
     @IBOutlet weak var micButton: UIButton!
     
     // MARK: Properties
     /// The speech recogniser used by the controller to record the user's speech.
-    private let speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
+  
+    private var speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
         
     /// The current speech recognition request. Created when the user wants to begin speech recognition
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -26,8 +27,10 @@ class NewNoteController: UIViewController {
     /// The audio engine used to record input from the microphone.
     private let audioEngine = AVAudioEngine()
     
+    let noteManager = NoteManager.shared
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Set the image content mode to scale aspect fit
@@ -156,6 +159,18 @@ class NewNoteController: UIViewController {
             view.endEditing(true)
         }
     
+    @IBAction func pickLanguage(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex{
+        case 0:
+            speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
+        case 1:
+            speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "ja-JP"))!
+        default:
+            break
+        }
+
+    }
+    
     @IBAction func recordingPressed(_ sender: UIButton) {
         // called on "Touch Down" action
         
@@ -164,6 +179,7 @@ class NewNoteController: UIViewController {
         sender.backgroundColor = UIColor.gray
         
         self.startRecording()
+
 
     }
     
@@ -178,6 +194,32 @@ class NewNoteController: UIViewController {
     }
     
     @IBOutlet weak var dictation: UITextView!
+    
+    @IBAction func saveNote(_ sender: UIBarItem){
+        let alertController = UIAlertController(title: "New Note", message: "", preferredStyle: .alert)
+
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Title"
+        }
+        
+
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
+            guard let title = alertController.textFields?.first?.text,
+                  let body = self?.dictation.text,
+                  !title.isEmpty,
+                  !body.isEmpty else { return }
+
+            self?.noteManager.addNote(title: title, body: body)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+
     
 }
 
