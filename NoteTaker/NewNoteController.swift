@@ -15,8 +15,8 @@ class NewNoteController: UIViewController {
     
     // MARK: Properties
     /// The speech recogniser used by the controller to record the user's speech.
+  
     private var speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
-    
         
     /// The current speech recognition request. Created when the user wants to begin speech recognition
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -178,6 +178,7 @@ class NewNoteController: UIViewController {
         
         self.startRecording()
 
+
     }
     
     
@@ -193,8 +194,9 @@ class NewNoteController: UIViewController {
     @IBOutlet weak var dictation: UITextView!
     
     @IBAction func saveNote(_ sender: UIBarItem){
-        
+        //need code here
     }
+    
 }
 
 extension UIImage {
