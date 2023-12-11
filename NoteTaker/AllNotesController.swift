@@ -18,9 +18,8 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         // Initialize NoteManager
-        let noteManager = NoteManager.shared
-        
-        noteManager.addNote(title: "New Note", body: "This is the body of the new note.")
+//        let noteManager = NoteManager.shared
+
 
         setupTableView()
         fetchNotes()
@@ -33,47 +32,18 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func fetchNotes() {
-        // Specify the file path where your notes are stored
-        let folderName = "VoicePadPro"
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             print("Error getting document directory.")
             return
         }
 
-        let voicePadFolderUrl = documentDirectory.appendingPathComponent(folderName, isDirectory: true)
-
-        // Ensure that the VoicePad folder exists
-        do {
-            try FileManager.default.createDirectory(at: voicePadFolderUrl, withIntermediateDirectories: true, attributes: nil)
-        } catch {
-            print("Error creating VoicePadPro folder: \(error)")
-            return
-        }
+        let filePath = documentDirectory.appendingPathComponent("notes.json", isDirectory: false)
 
         do {
-            // Get the enumerator for the VoicePad folder
-            if let enumerator = FileManager.default.enumerator(atPath: voicePadFolderUrl.path) {
-                // Iterate through each file in the folder
-                for case let file as String in enumerator {
-                    // Construct the full file URL
-                    let fileUrl = voicePadFolderUrl.appendingPathComponent(file)
-
-                    do {
-                        // Ensure that fileUrl represents a file
-                        var isDirectory: ObjCBool = false
-                        if FileManager.default.fileExists(atPath: fileUrl.path, isDirectory: &isDirectory) && !isDirectory.boolValue {
-                            // Read the content of each file
-                            let data = try Data(contentsOf: fileUrl)
-                            let decoder = JSONDecoder()
-                            let note = try decoder.decode(Note.self, from: data)
-                            notes.append(note)
-                        }
-                    } catch {
-                        print("Error reading content of file \(fileUrl): \(error)")
-                        // Handle the error as needed
-                    }
-                }
-            }
+            let data = try Data(contentsOf: filePath)
+            print("Data from file: \(String(data: data, encoding: .utf8) ?? "Unable to convert data to string")")
+            let decoder = JSONDecoder()
+            notes = try decoder.decode([Note].self, from: data)
         } catch let error {
             print("Error fetching data: \(error)")
         }
@@ -90,6 +60,7 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
+
 
     // MARK: - UITableViewDataSource
 

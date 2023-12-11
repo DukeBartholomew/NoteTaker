@@ -18,10 +18,10 @@ class NoteManager {
 
     private var notes: [Note] = []
     private let fileName = "notes.json"
-    private let folderName = "VoicePadPro"
 
     private init() {
         loadNotes()
+
     }
 
     func addNote(title: String, body: String) {
@@ -71,15 +71,15 @@ class NoteManager {
             return nil
         }
 
-        let voicePadFolder = documentDirectory.appendingPathComponent(folderName, isDirectory: true)
-
-        do {
-            try FileManager.default.createDirectory(at: voicePadFolder, withIntermediateDirectories: true, attributes: nil)
-        } catch {
-            print("Error creating VoicePadPro folder: \(error)")
-            return nil
-        }
-
-        return voicePadFolder.appendingPathComponent(fileName, isDirectory: false)
+        return documentDirectory.appendingPathComponent(fileName, isDirectory: false)
     }
+    
+    func clearTable() {
+       // Clear the notes array
+       notes.removeAll()
+
+       // Save the empty notes array to overwrite the existing notes.json file
+       saveNotes()
+    }
+
 }

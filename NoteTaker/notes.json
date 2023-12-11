@@ -1,0 +1,28 @@
+
+[
+  {
+    "title": "The Godfather",
+    "body": "I'm gonna make him an offer he can't refuse.",
+    "dateCreated": "2023-01-01T12:00:00Z"
+  },
+  {
+    "title": "Casablanca",
+    "body": "Here's looking at you, kid.",
+    "dateCreated": "2023-02-15T14:30:00Z"
+  },
+  {
+    "title": "Star Wars",
+    "body": "May the Force be with you.",
+    "dateCreated": "2023-03-20T10:45:00Z"
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "body": "Get busy living, or get busy dying.",
+    "dateCreated": "2023-04-10T18:20:00Z"
+  },
+  {
+    "title": "Forrest Gump",
+    "body": "Life is like a box of chocolates; you never know what you're gonna get.",
+    "dateCreated": "2023-05-05T08:00:00Z"
+  }
+]

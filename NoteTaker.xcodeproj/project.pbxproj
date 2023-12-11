@@ -16,6 +16,7 @@
 		AB0A84CD2B21738600B281FF /* NewNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A84CC2B21738600B281FF /* NewNoteController.swift */; };
 		AB0A84CF2B21740300B281FF /* AllNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A84CE2B21740300B281FF /* AllNotesController.swift */; };
 		AB0A84D82B22C9C800B281FF /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A84D72B22C9C800B281FF /* NoteManager.swift */; };
+		ABBEA5112B27BC79008341D4 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = ABBEA5102B27BC79008341D4 /* notes.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AB0A84CC2B21738600B281FF /* NewNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteController.swift; sourceTree = "<group>"; };
 		AB0A84CE2B21740300B281FF /* AllNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesController.swift; sourceTree = "<group>"; };
 		AB0A84D72B22C9C800B281FF /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
+		ABBEA5102B27BC79008341D4 /* notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				AB0A84CC2B21738600B281FF /* NewNoteController.swift */,
 				AB0A84CE2B21740300B281FF /* AllNotesController.swift */,
 				AB0A84D72B22C9C800B281FF /* NoteManager.swift */,
+				ABBEA5102B27BC79008341D4 /* notes.json */,
 				AB0A84BD2B21390E00B281FF /* Assets.xcassets */,
 				AB0A84BF2B21390E00B281FF /* LaunchScreen.storyboard */,
 				AB0A84C22B21390E00B281FF /* Info.plist */,
@@ -137,6 +140,7 @@
 				AB0A84C12B21390E00B281FF /* LaunchScreen.storyboard in Resources */,
 				AB0A84BE2B21390E00B281FF /* Assets.xcassets in Resources */,
 				AB0A84BC2B21390B00B281FF /* Main.storyboard in Resources */,
+				ABBEA5112B27BC79008341D4 /* notes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
