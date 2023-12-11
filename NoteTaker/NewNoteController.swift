@@ -10,12 +10,13 @@ import AVFoundation
 import Speech
 
 class NewNoteController: UIViewController {
-
+    
     @IBOutlet weak var micButton: UIButton!
     
     // MARK: Properties
     /// The speech recogniser used by the controller to record the user's speech.
-    private let speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
+  
+    private var speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
         
     /// The current speech recognition request. Created when the user wants to begin speech recognition
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -156,6 +157,18 @@ class NewNoteController: UIViewController {
             view.endEditing(true)
         }
     
+    @IBAction func pickLanguage(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex{
+        case 0:
+            speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
+        case 1:
+            speechRecogniser = SFSpeechRecognizer(locale: Locale(identifier: "ja-JP"))!
+        default:
+            break
+        }
+
+    }
+    
     @IBAction func recordingPressed(_ sender: UIButton) {
         // called on "Touch Down" action
         
@@ -164,6 +177,7 @@ class NewNoteController: UIViewController {
         sender.backgroundColor = UIColor.gray
         
         self.startRecording()
+
 
     }
     
@@ -178,6 +192,10 @@ class NewNoteController: UIViewController {
     }
     
     @IBOutlet weak var dictation: UITextView!
+    
+    @IBAction func saveNote(_ sender: UIBarItem){
+        //need code here
+    }
     
 }
 
