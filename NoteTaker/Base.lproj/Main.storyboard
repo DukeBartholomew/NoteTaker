@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XEe-t2-Qfc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XEe-t2-Qfc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -117,7 +116,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9qc-im-Zgg">
                                 <rect key="frame" x="16" y="103" width="351" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -153,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EUK-eV-ZUN">
-                                <rect key="frame" x="39.666666666666657" y="261" width="314" height="399"/>
+                                <rect key="frame" x="39.666666666666657" y="227" width="314" height="399"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="314" id="GYK-Ye-DsW"/>
@@ -170,12 +169,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9hs-dC-wyy">
+                                <rect key="frame" x="104" y="145" width="185" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KnX-4G-0eB"/>
+                                    <constraint firstAttribute="width" constant="185" id="WMy-VA-w1y"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Title"/>
+                                    <segment title="Date"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortByValueChanged:" destination="tGI-Oa-Ag1" eventType="valueChanged" id="T09-Pc-KNJ"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UoS-st-g8Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EUK-eV-ZUN" firstAttribute="top" secondItem="9hs-dC-wyy" secondAttribute="bottom" constant="52" id="4KH-4c-s2V"/>
                             <constraint firstItem="EUK-eV-ZUN" firstAttribute="centerX" secondItem="UoS-st-g8Q" secondAttribute="centerX" id="8jb-W6-zve"/>
-                            <constraint firstItem="EUK-eV-ZUN" firstAttribute="centerY" secondItem="UoS-st-g8Q" secondAttribute="centerY" id="zxA-yK-cru"/>
+                            <constraint firstItem="9hs-dC-wyy" firstAttribute="centerX" secondItem="UoS-st-g8Q" secondAttribute="centerX" id="9Hl-BR-lIf"/>
+                            <constraint firstItem="9hs-dC-wyy" firstAttribute="top" secondItem="UoS-st-g8Q" secondAttribute="top" constant="42" id="x1P-ct-Bve"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All Notes" id="kBZ-cE-sSa"/>
@@ -185,13 +200,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ot-JU-BVM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122.9007633587785" y="-204.22535211267606"/>
+            <point key="canvasLocation" x="1076" y="-285"/>
         </scene>
     </scenes>
     <resources>
         <image name="mic.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

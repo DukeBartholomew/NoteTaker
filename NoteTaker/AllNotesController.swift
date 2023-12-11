@@ -11,7 +11,7 @@ import CoreData
 class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-
+    
     var notes: [Note] = []
 
     override func viewDidLoad() {
@@ -80,5 +80,20 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         return cell
+    }
+    
+    @IBAction func sortByValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            // Sort by title in alphabetical order
+            notes.sort { $0.title < $1.title }
+        case 1:
+            // Sort by date in descending order (most recent to least)
+            notes.sort { $0.dateCreated > $1.dateCreated }
+        default:
+            break
+        }
+
+        tableView.reloadData()
     }
 }
