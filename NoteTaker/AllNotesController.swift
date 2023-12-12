@@ -20,9 +20,10 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
         // Initialize NoteManager
 //        let noteManager = NoteManager.shared
 
-
         setupTableView()
         fetchNotes()
+        notes.sort { $0.title < $1.title }
+
     }
 
     func setupTableView() {
