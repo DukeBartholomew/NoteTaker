@@ -30,13 +30,13 @@ class NewNoteController: UIViewController {
 
     let noteManager = NoteManager.shared
 
-    var initialNoteBody: String?
+    var initialNoteBody: NSAttributedString?
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        dictation.text = initialNoteBody
+        dictation.attributedText = initialNoteBody
 
         // Set the image content mode to scale aspect fit
         micButton.imageView?.contentMode = .scaleAspectFit
@@ -205,11 +205,10 @@ class NewNoteController: UIViewController {
 
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let title = alertController.textFields?.first?.text,
-                  let body = self?.dictation.text,
-                  !title.isEmpty,
-                  !body.isEmpty else { return }
+                  let attributedBody = self?.dictation.attributedText else { return }
 
-            self?.noteManager.addNote(title: title, body: body)
+            // Pass the title and attributedBody directly to addNote
+            self?.noteManager.addNote(title: title, attributedBody: attributedBody)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -219,8 +218,81 @@ class NewNoteController: UIViewController {
 
         present(alertController, animated: true, completion: nil)
     }
+ 
 
     
+    @IBAction func boldButtonTapped(_ sender: Any) {
+       applyBold()
+   }
+
+   @IBAction func italicizeButtonTapped(_ sender: Any) {
+       applyItalic()
+   }
+
+   @IBAction func underlineButtonTapped(_ sender: Any) {
+       applyUnderline()
+   }
+
+   func applyBold() {
+       guard let selectedTextRange = dictation.selectedTextRange else {
+           return
+       }
+
+       let selectedText = dictation.text(in: selectedTextRange)
+
+       if let selectedText = selectedText {
+           let attributedText = NSMutableAttributedString(string: selectedText)
+           let range = NSRange(location: 0, length: attributedText.length)
+
+           attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: dictation.font?.pointSize ?? UIFont.systemFontSize), range: range)
+
+           let mutableAttributedString = NSMutableAttributedString(attributedString: dictation.attributedText)
+           mutableAttributedString.replaceCharacters(in: dictation.selectedRange, with: attributedText)
+
+           dictation.attributedText = mutableAttributedString
+       }
+   }
+
+   func applyItalic() {
+       guard let selectedTextRange = dictation.selectedTextRange else {
+           return
+       }
+
+       let selectedText = dictation.text(in: selectedTextRange)
+
+       if let selectedText = selectedText {
+           let attributedText = NSMutableAttributedString(string: selectedText)
+           let range = NSRange(location: 0, length: attributedText.length)
+
+           attributedText.addAttribute(.font, value: UIFont.italicSystemFont(ofSize: dictation.font?.pointSize ?? UIFont.systemFontSize), range: range)
+
+           let mutableAttributedString = NSMutableAttributedString(attributedString: dictation.attributedText)
+           mutableAttributedString.replaceCharacters(in: dictation.selectedRange, with: attributedText)
+
+           dictation.attributedText = mutableAttributedString
+       }
+   }
+
+   func applyUnderline() {
+       guard let selectedTextRange = dictation.selectedTextRange else {
+           return
+       }
+
+       let selectedText = dictation.text(in: selectedTextRange)
+
+       if let selectedText = selectedText {
+           let attributedText = NSMutableAttributedString(string: selectedText)
+           let range = NSRange(location: 0, length: attributedText.length)
+
+           attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+
+           let mutableAttributedString = NSMutableAttributedString(attributedString: dictation.attributedText)
+           mutableAttributedString.replaceCharacters(in: dictation.selectedRange, with: attributedText)
+
+           dictation.attributedText = mutableAttributedString
+       }
+   }
+
 }
 
 extension UIImage {
@@ -230,6 +302,8 @@ extension UIImage {
         }
     }
 }
+
+
 
 
 

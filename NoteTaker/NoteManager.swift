@@ -9,7 +9,7 @@ import Foundation
 
 struct Note: Codable {
     var title: String
-    var body: String
+    var attributedBody: Data  // Change to Data type to store attributed text
     var dateCreated: Date
 }
 
@@ -21,17 +21,16 @@ class NoteManager {
 
     private init() {
         loadNotes()
-
     }
 
-    func addNote(title: String, body: String) {
+    func addNote(title: String, attributedBody: NSAttributedString) {
         // Check if a note with the given title already exists
         if let existingNoteIndex = notes.firstIndex(where: { $0.title == title }) {
-            // Note with the same title exists, update the body
-            notes[existingNoteIndex].body = body
+            // Note with the same title exists, update the attributedBody
+            notes[existingNoteIndex].attributedBody = try! NSKeyedArchiver.archivedData(withRootObject: attributedBody, requiringSecureCoding: false)
         } else {
             // Note with the title doesn't exist, create a new note
-            let newNote = Note(title: title, body: body, dateCreated: Date())
+            let newNote = Note(title: title, attributedBody: try! NSKeyedArchiver.archivedData(withRootObject: attributedBody, requiringSecureCoding: false), dateCreated: Date())
             notes.append(newNote)
         }
 
@@ -82,13 +81,12 @@ class NoteManager {
 
         return documentDirectory.appendingPathComponent(fileName, isDirectory: false)
     }
-    
+
     func clearTable() {
-       // Clear the notes array
-       notes.removeAll()
+        // Clear the notes array
+        notes.removeAll()
 
-       // Save the empty notes array to overwrite the existing notes.json file
-       saveNotes()
+        // Save the empty notes array to overwrite the existing notes.json file
+        saveNotes()
     }
-
 }

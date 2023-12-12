@@ -19,6 +19,7 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Initialize NoteManager
 //        let noteManager = NoteManager.shared
+//        noteManager.clearTable()
 
         setupTableView()
         fetchNotes()
@@ -57,7 +58,7 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
             print("Fetched nothing for titles.")
         } else {
             for note in notes {
-                print("Fetched title: \(note.title), body: \(note.body), date created: \(note.dateCreated)")
+                print("Fetched title: \(note.title), body: \(note.attributedBody), date created: \(note.dateCreated)")
             }
         }
     }
@@ -99,15 +100,16 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
 
      // MARK: - Navigation
 
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "showNewNote", let newNoteController = segue.destination as? NewNoteController {
-             // Check if sender is of type Note
-             if let selectedNote = sender as? Note {
-                 // Pass the selected note's body to the NewNoteController
-                 newNoteController.initialNoteBody = selectedNote.body
-             }
-         }
-     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNewNote", let newNoteController = segue.destination as? NewNoteController {
+            // Check if sender is of type Note
+            if let selectedNote = sender as? Note {
+                // Pass the selected note's attributed body to the NewNoteController
+                newNoteController.initialNoteBody = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(selectedNote.attributedBody) as? NSAttributedString
+            }
+        }
+    }
+
   
     @IBAction func sortByValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
