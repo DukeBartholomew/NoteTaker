@@ -135,7 +135,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Sen-iG-BDT">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bYQ-rl-nrB">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bYQ-rl-nrB">
                             <rect key="frame" x="118" y="5.6666666666666679" width="157" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -180,6 +180,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="314" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="w0B-2X-GO2" kind="show" identifier="showNewNote" id="ahK-ge-Qil"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -217,6 +220,9 @@
             <point key="canvasLocation" x="1076" y="-285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ahK-ge-Qil"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="mic.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
