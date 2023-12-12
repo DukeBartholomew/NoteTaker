@@ -54,11 +54,12 @@ class NewNoteController: UIViewController {
             
             // Set the tint color to orange
             micButton.tintColor = UIColor.orange
-            }
+        }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
             view.addGestureRecognizer(tap)
-        }
+        
+    }
     
     func startRecording() {
         // setup recongizer
@@ -179,12 +180,8 @@ class NewNoteController: UIViewController {
     @IBAction func recordingPressed(_ sender: UIButton) {
         // called on "Touch Down" action
         
-        // set button to display "recording"
-        sender.setImage(UIImage(systemName: "mic.circle.fill"), for: .normal)
-        sender.backgroundColor = UIColor.gray
         
         self.startRecording()
-
 
     }
     
@@ -193,9 +190,7 @@ class NewNoteController: UIViewController {
         //called on "Touch Up Inside" action
         self.stopRecording()
         
-        // set button to display "normal"
-        sender.setImage(UIImage(systemName: "mic.circle"), for: .normal)
-        sender.backgroundColor = UIColor.white
+
     }
     
     @IBOutlet weak var dictation: UITextView!

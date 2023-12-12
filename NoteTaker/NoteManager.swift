@@ -25,8 +25,17 @@ class NoteManager {
     }
 
     func addNote(title: String, body: String) {
-        let newNote = Note(title: title, body: body, dateCreated: Date())
-        notes.append(newNote)
+        // Check if a note with the given title already exists
+        if let existingNoteIndex = notes.firstIndex(where: { $0.title == title }) {
+            // Note with the same title exists, update the body
+            notes[existingNoteIndex].body = body
+        } else {
+            // Note with the title doesn't exist, create a new note
+            let newNote = Note(title: title, body: body, dateCreated: Date())
+            notes.append(newNote)
+        }
+
+        // Save the updated notes
         saveNotes()
     }
 
