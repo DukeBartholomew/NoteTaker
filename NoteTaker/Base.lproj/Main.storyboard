@@ -116,7 +116,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9qc-im-Zgg">
                                 <rect key="frame" x="36" y="129" width="331" height="474"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -146,7 +145,11 @@
                                 <action selector="pickLanguage:" destination="w0B-2X-GO2" eventType="valueChanged" id="hyu-gD-eaB"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Save Note" id="GDe-bt-wUv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save Note" id="GDe-bt-wUv">
+                            <connections>
+                                <action selector="saveNote:" destination="w0B-2X-GO2" id="e9L-rQ-Tcw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dictation" destination="9qc-im-Zgg" id="XDD-PD-ot6"/>

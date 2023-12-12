@@ -27,11 +27,13 @@ class NewNoteController: UIViewController {
     /// The audio engine used to record input from the microphone.
     private let audioEngine = AVAudioEngine()
     
+
+    let noteManager = NoteManager.shared
+
     var initialNoteBody: String?
 
-    
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         dictation.text = initialNoteBody
@@ -199,8 +201,30 @@ class NewNoteController: UIViewController {
     @IBOutlet weak var dictation: UITextView!
     
     @IBAction func saveNote(_ sender: UIBarItem){
-        //need code here
+        let alertController = UIAlertController(title: "New Note", message: "", preferredStyle: .alert)
+
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Title"
+        }
+        
+
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
+            guard let title = alertController.textFields?.first?.text,
+                  let body = self?.dictation.text,
+                  !title.isEmpty,
+                  !body.isEmpty else { return }
+
+            self?.noteManager.addNote(title: title, body: body)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
     }
+
     
 }
 

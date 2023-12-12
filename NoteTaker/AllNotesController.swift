@@ -82,6 +82,7 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          // Check if there are notes and the selected index is within bounds
          guard !notes.isEmpty, indexPath.row < notes.count else {
@@ -106,7 +107,7 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
              }
          }
      }
-    
+  
     @IBAction func sortByValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
