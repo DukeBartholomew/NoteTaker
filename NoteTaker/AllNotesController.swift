@@ -82,6 +82,32 @@ class AllNotesController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         // Check if there are notes and the selected index is within bounds
+         guard !notes.isEmpty, indexPath.row < notes.count else {
+             return
+         }
+
+         // Get the selected note
+         let selectedNote = notes[indexPath.row]
+
+         // Perform the segue programmatically
+         performSegue(withIdentifier: "showNewNote", sender: selectedNote)
+     }
+
+     // MARK: - Navigation
+
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "showNewNote", let newNoteController = segue.destination as? NewNoteController {
+             // Check if sender is of type Note
+             if let selectedNote = sender as? Note {
+                 // Pass the selected note's body to the NewNoteController
+                 newNoteController.initialNoteBody = selectedNote.body
+             }
+         }
+     }
+  
     @IBAction func sortByValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:

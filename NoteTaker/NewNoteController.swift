@@ -27,11 +27,16 @@ class NewNoteController: UIViewController {
     /// The audio engine used to record input from the microphone.
     private let audioEngine = AVAudioEngine()
     
+
     let noteManager = NoteManager.shared
-    
+
+    var initialNoteBody: String?
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        dictation.text = initialNoteBody
 
         // Set the image content mode to scale aspect fit
         micButton.imageView?.contentMode = .scaleAspectFit
